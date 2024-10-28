@@ -1,0 +1,13 @@
+<style>
+.excerpt-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+</style>
+<ul class="excerpt-list">
+	<br>
+	<excerpt webc:for="post of collections.post.toReversed()" :post="post"></excerpt>
+	<br>
+</ul>

@@ -1,0 +1,16 @@
+<script webc:setup>
+function wrap(content, width) {
+  const dashes = '='.repeat(width);
+  const nonTextLength = content.length - content.replace(/<[^>]+>/ig, '').length;
+  content = content.padEnd(nonTextLength + width - 4, ' ');
+  return dashes + '<br>| ' + content + ' |<br>' + dashes;
+}
+</script>
+
+<style>
+.box {
+  white-space: pre;
+}
+</style>
+
+<div class="box" @raw="wrap(content, width)"></div>

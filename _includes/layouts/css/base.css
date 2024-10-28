@@ -1,0 +1,47 @@
+:root {
+	--font-family: "Source Code Pro", monospace;
+
+	--background-color: #111;
+	--text-color: #EEE;
+	--text-color-link: #6F0;
+	--text-color-link-active: #93C;
+	--text-color-link-visited: #93C;
+}
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	font-optical-sizing: auto;
+	font-weight: normal;
+	font-style: normal;
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+}
+header,
+main,
+footer {
+	margin: 0 auto;
+	max-width: 60rem;
+}
+footer {
+	font-style: italic;
+}
+a {
+	color: var(--text-color-link);
+	text-decoration: none;
+}
+a:active {
+	color: var(--text-color-link-active);
+}
+a:visited {
+	color: var(--text-color-link-visited);
+}

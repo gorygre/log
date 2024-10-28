@@ -1,0 +1,39 @@
+<script webc:setup>
+	const home = '<a href="/">mccall.log</a>';
+	const copyright = `©${(new Date()).getFullYear()}`;
+	const source = '<a href="https://github.com/gorygre/log">Source</a>';
+	const contact = '<a href="https://www.linkedin.com/in/grmccall">Contact</a>'
+</script>
+<!doctype html>
+<html :lang="metadata.language">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title @text="title || metadata.title"></title>
+		<meta name="description" :content="description || metadata.description">
+		<meta name="generator" :content="eleventy.generator">
+
+		<link rel="stylesheet" href="css/prism.css">
+		<link rel="stylesheet" href="css/base.css">
+
+		<link webc:keep rel="preconnect" href="https://fonts.googleapis.com">
+		<link webc:keep rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link webc:keep href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+		<style webc:keep @raw="getBundle('css')"></style>
+	</head>
+	<body>
+		<header>
+			<box :width="metadata.boxWidth" :content="home"></box>
+		</header>
+
+		<main @raw="content"></main>
+
+		<footer>
+			<box :width="metadata.boxWidth" :content="copyright + ' ' + contact + ' [' + source + ']'"></box>
+		</footer>
+
+		<script type="module">import mermaid from "https://unpkg.com/mermaid@10/dist/mermaid.esm.min.mjs";mermaid.initialize({startOnLoad:true, theme:'dark'});</script>
+		<script type="module" webc:keep @raw="getBundle('js')"></script>
+	</body>
+</html>
